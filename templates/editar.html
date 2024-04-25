@@ -1,0 +1,29 @@
+<!-- templates/index.html -->
+
+{% extends "base.html" %}
+
+{% block title %}Cadastro de Produtos{% endblock %}
+
+{% block content %}
+
+<h3 class="mt-4">Editar Produto</h3>
+
+<form action="{{ url_for('editar_produto', id=produto.id) }}" method="post">
+  <div class="mb-3">
+    <label for="nome" class="form-label">Nome</label>
+    <input type="text" class="form-control" id="nome" name="nome" value="{{ produto.nome }}">
+  </div>
+  <div class="mb-3">
+    <label for="descricao" class="form-label">Descrição</label>
+    <textarea class="form-control" id="descricao" rows="3" name="descricao">{{ produto.descricao }}</textarea>
+  </div>
+  <div class="mb-3">
+    <label for="preco" class="form-label">Preço</label>
+    <input type="text" class="form-control" id="preco" name="preco" value="{{ produto.preco }}">
+  </div>  
+  <input type="submit" value="Salvar" class="btn btn-success mt-3">
+  <a href="{{ url_for('index') }}" class="btn btn-primary mt-3">Voltar</a>
+</form>
+
+
+{% endblock %}
